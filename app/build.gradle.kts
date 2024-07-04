@@ -1,33 +1,20 @@
 plugins {
-    kotlin("jvm") version "1.6.20"
+    id("org.http.server.httpframework.module")
     application
 }
 
 group = "org.http.server"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation(kotlin("stdlib"))
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.6.20")
-    testImplementation("io.kotest:kotest-runner-junit5:5.3.0")
-    testImplementation("io.mockk:mockk:1.12.4")
+    implementation(project(":logging"))
+    implementation(project(":reflections"))
+    implementation(project(":ioc-reflection"))
+    implementation(project(":object-mapper"))
+    implementation(project(":sse"))
+    implementation(project(":http-server"))
+    implementation(project(":json-mapper"))
 }
-
-sourceSets {
-    main {
-        output.setResourcesDir("build/classes/main")
-    }
-}
-
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
-}
-
-
 
 application {
     mainClass.set("org.http.server.httpserverframework.MainKt")

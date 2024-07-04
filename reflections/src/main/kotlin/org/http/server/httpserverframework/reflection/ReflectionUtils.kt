@@ -1,18 +1,23 @@
 package org.http.server.httpserverframework.reflection
 
 import java.io.BufferedReader
+import java.io.FileInputStream
 import java.io.InputStreamReader
+import java.util.stream.Collectors
 
 object ReflectionUtils {
     fun loadClassNamesInPackage(packageName: String): Sequence<String> {
-        return ClassLoader.getSystemClassLoader().getResourceAsStream(packageName.replace('.', '/'))
-            ?.use { resourceStream -> BufferedReader(InputStreamReader(resourceStream)).use {
-                    bf -> return@use bf.lines()
-                .map { extractClasses(it, packageName) }
-                .toList()
-                .flatten()
-                .asSequence()
-            } } ?: sequenceOf()
+        return ClassLoader.getSystemResources(packageName.replace('.', '/'))
+            .toList()
+            .map { resourceStream ->
+                BufferedReader(InputStreamReader(resourceStream.openStream())).use { bf ->
+                    return@use bf.lines()
+                        .map { extractClasses(it, packageName) }
+                        .collect(Collectors.toList())
+                        .toList()
+                }.flatten()
+            }.flatten()
+            .asSequence()
     }
 
     fun extractClasses(name: String, packageName: String): List<String> {

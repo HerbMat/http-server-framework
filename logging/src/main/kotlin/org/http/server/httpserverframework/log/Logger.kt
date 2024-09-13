@@ -1,9 +1,11 @@
 package org.http.server.httpserverframework.log
 
+import org.http.server.httpserverframework.prototypes.Component
 import java.util.logging.Level
 import java.util.logging.LogManager
 import java.util.logging.Logger as UtilLogger
 
+@Component
 class Logger(name: String) {
     private val logger = UtilLogger.getLogger(name)
 

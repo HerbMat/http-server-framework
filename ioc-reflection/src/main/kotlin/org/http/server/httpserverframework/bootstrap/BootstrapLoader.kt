@@ -4,8 +4,8 @@ package org.http.server.httpserverframework.bootstrap
 import org.http.server.httpserverframework.reflection.ReflectionUtils
 import java.lang.RuntimeException
 
-class BootstrapLoader(path: String) {
-    private val allClassNames = ReflectionUtils.loadClassNamesInPackage(path)
+class BootstrapLoader() {
+    private val allClassNames = ReflectionUtils.loadContextClasses()
 
     fun prepareContext(mainClassAnnotation: Class<out Annotation>): ServerContext {
         val serverContext = ServerContext()

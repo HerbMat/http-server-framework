@@ -3,12 +3,14 @@ package org.http.server.httpserverframework.mapper.json
 import org.http.server.httpserverframework.log.Logger
 import org.http.server.httpserverframework.mapper.ObjectMapper
 import org.http.server.httpserverframework.mapper.util.FieldsExtractor
+import org.http.server.httpserverframework.prototypes.Component
 import java.lang.RuntimeException
 import java.time.LocalDate
 import java.util.regex.Pattern
 import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 
+@Component
 class JsonMapper(private val fieldsExtractor: FieldsExtractor) : ObjectMapper {
     companion object {
         val INSTANCE by lazy {

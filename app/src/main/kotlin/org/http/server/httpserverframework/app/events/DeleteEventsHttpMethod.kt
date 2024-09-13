@@ -7,10 +7,12 @@ import org.http.server.httpserverframework.server.handlers.methods.RequestHandle
 import org.http.server.httpserverframework.server.http.HttpCodes
 import org.http.server.httpserverframework.server.http.HttpMethod
 import org.http.server.httpserverframework.log.Logger
+import org.http.server.httpserverframework.prototypes.Component
 import org.http.server.httpserverframework.server.test.utils.HttpExchangeExtensions.addCORSHeaders
 import org.http.server.httpserverframework.server.test.utils.PathVariableMethods
 
 @Controller(path = "/notifications/{id}")
+@Component
 class DeleteEventsHttpMethod(
     private val eventRepository: EventRepository,
 ): RequestHandlerMethod() {

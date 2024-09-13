@@ -3,7 +3,9 @@ package org.http.server.httpserverframework.converters
 import org.http.server.httpserverframework.converters.sse.SseEvents
 import org.http.server.httpserverframework.log.Logger
 import org.http.server.httpserverframework.mapper.ObjectMapper
+import org.http.server.httpserverframework.prototypes.Component
 
+@Component
 class SseResponseConverter(private val responseMapper: ObjectMapper) {
     companion object {
         private val log = Logger.getLogger(this::class.toString())

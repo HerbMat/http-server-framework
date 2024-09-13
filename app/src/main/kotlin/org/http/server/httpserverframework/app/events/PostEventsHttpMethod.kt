@@ -11,10 +11,12 @@ import org.http.server.httpserverframework.server.http.HttpMethod
 import org.http.server.httpserverframework.log.Logger
 import org.http.server.httpserverframework.mapper.ObjectMapper
 import org.http.server.httpserverframework.mapper.json.JsonMapper
+import org.http.server.httpserverframework.prototypes.Component
 import org.http.server.httpserverframework.server.test.utils.HttpExchangeExtensions.addCORSHeaders
 import java.util.stream.Collectors
 
 @Controller(path = "/notifications")
+@Component
 class PostEventsHttpMethod(
     private val eventRepository: EventRepository,
     private val objectMapper: ObjectMapper

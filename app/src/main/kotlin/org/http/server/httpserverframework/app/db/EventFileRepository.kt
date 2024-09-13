@@ -2,11 +2,13 @@ package org.http.server.httpserverframework.app.db
 
 import org.http.server.httpserverframework.app.domain.Event
 import org.http.server.httpserverframework.log.Logger
+import org.http.server.httpserverframework.prototypes.Component
 import java.nio.file.Files
 import java.nio.file.Path
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+@Component
 class EventFileRepository private constructor(private val path: Path): EventRepository {
     companion object {
         val INSTANCE by lazy {

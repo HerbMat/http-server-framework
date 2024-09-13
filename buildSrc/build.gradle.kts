@@ -12,5 +12,5 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
-    implementation("context-indexer:context-indexer.gradle.plugin:1.0-SNAPSHOT")
+    implementation("org.http.server:context-indexer:1.0-SNAPSHOT")
 }

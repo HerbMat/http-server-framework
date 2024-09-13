@@ -11,10 +11,12 @@ import org.http.server.httpserverframework.server.handlers.methods.RequestHandle
 import org.http.server.httpserverframework.server.http.HttpCodes
 import org.http.server.httpserverframework.server.http.HttpHeaders
 import org.http.server.httpserverframework.log.Logger
+import org.http.server.httpserverframework.prototypes.Component
 import org.http.server.httpserverframework.server.test.utils.HttpExchangeExtensions.addCORSHeaders
 import org.http.server.httpserverframework.server.test.utils.HttpExchangeExtensions.addEventSourcingHeaders
 
 @Controller(path = "/notifications/sse")
+@Component
 class GetEventsHttpMethod(
     private val eventRepository: EventRepository,
     private val sseResponseConverter: SseResponseConverter

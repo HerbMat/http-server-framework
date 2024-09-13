@@ -8,7 +8,7 @@ import org.http.server.httpserverframework.server.handlers.RequestHandler
 import org.http.server.httpserverframework.server.handlers.methods.RequestHandlerMethod
 
 fun main(args: Array<String>) {
-    val bootstrapLoader = BootstrapLoader("org.http.server.httpserverframework")
+    val bootstrapLoader = BootstrapLoader()
     val serverContext = bootstrapLoader.prepareContext(mainClassAnnotation = Controller::class.java)
     val controllers = serverContext.loadedObjects.filter { ReflectionUtils.hasAnnotation(it.key, Controller::class.java) }
         .values

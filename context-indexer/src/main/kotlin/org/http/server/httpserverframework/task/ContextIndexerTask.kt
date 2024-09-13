@@ -8,7 +8,7 @@ abstract class ContextIndexerTask : Plugin<Project> {
     override fun apply(project: Project) {
         val contextIndexerTask = project.tasks.register("context-indexer") {
             it.doLast {
-                println("Perform indexing LALO")
+                println("Perform indexing LALO ${project.buildDir.path}")
                 val contextIndexer = ContextIndexer(project.buildDir.path)
                 contextIndexer.createProjectIndex()
             }
